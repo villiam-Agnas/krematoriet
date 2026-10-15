@@ -3,3 +3,17 @@
 * {
   box-sizing: border-box;
 }
+
+@theme {
+  --color-olive: #606C38;
+  --color-forest: #283618;
+  --color-cornsilk: #FEFAE0;
+  --color-caramel: #DDA15E;
+  --color-copper: #BC6C25;
+}
+
+.button {@apply cursor-pointer inline-block p-2 rounded-xl bg-white/70 border-2 border-olive text-olive text-lg font-bold hover:bg-white/70 hover:border-copper hover:text-copper hover:scale-105 transition}
+.button-secondary {@apply cursor-pointer inline-block px-3 py-1 rounded-xl bg-white/70 border-2 border-forest text-forest text-lg font-bold hover:bg-forest/70 hover:border-cornsilk hover:text-cornsilk hover:scale-105 transition}
+.heading {@apply text-6xl mb-8 text-center text-forest}
+.heading-secondary {@apply text-4xl mb-8 text-center text-forest}
+.input {@apply border-olive border p-2 my-2 rounded-xl}
