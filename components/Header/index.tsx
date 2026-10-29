@@ -6,7 +6,7 @@ import Search from "./search";
 const Header = () => {
   return (
     <header
-      className="pt-4 pb-50 px-4 border-b-4 flex justify-between bg-cover bg-center"
+      className="flex flex-col items-center gap-4 border-b-4 bg-cover bg-center px-4 pt-4 pb-16 md:flex-row md:justify-between md:pb-50"
       style={{ backgroundImage: "url('/krematoriet.png')" }}
     >
       <Link href="/">

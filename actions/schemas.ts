@@ -15,6 +15,7 @@ export const postSchema = z.object({
   title: z.string().min(6, "your title must be at least 6 characters long!"),
   content: z.string().optional(),
   delete_at: z.string().optional(),
+  category: z.string().optional(),
   image: z.instanceof(FormData).optional()
 })
 

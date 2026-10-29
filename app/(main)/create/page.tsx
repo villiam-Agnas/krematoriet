@@ -41,6 +41,7 @@ const CreatePostPage = () => {
             title: values.title,
             content: values.content,
             delete_at: values.delete_at,
+            category: values.category,
             image: imageForm,
           });
         })}
@@ -50,11 +51,18 @@ const CreatePostPage = () => {
         <input className="input" type="text" {...register("title")} />
         {errors.title && <ErrorMessage error={errors.title.message!} />}
 
+        <label htmlFor="category">Category</label>
+        <select id="category" className="input" {...register("category")}>
+          <option value="">No category</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Free Jazz">Free Jazz</option>
+        </select>
+
         <label htmlFor="content">Add content</label>
         <textarea className="input" {...register("content")}></textarea>
 
         <label htmlFor="image">Add an image</label>
-        <input className="input" multiple type="file" {...register("image")} />
+        <input className="input" type="file" {...register("image")} />
         {errors.image && <ErrorMessage error={errors.image.message!} />}
 
         <label htmlFor="delete_at">Delete post at</label>

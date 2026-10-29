@@ -25,7 +25,9 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
         w-full max-w-3xl mt-2 p-4 sm:p-6 md:p-8
         flex flex-col gap-5"
         >
-          <h1 className="heading-secondary break-words">{data.title}</h1>
+          {data.category && <p className="text-sm uppercase">{data.category}</p>}
+
+          <h1 className="heading-secondary wrap-break-words">{data.title}</h1>
 
           {data.image && (
             <div className="w-full max-w-md aspect-square mx-auto rounded-xl overflow-hidden">
@@ -38,7 +40,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
           )}
 
           {data.content && (
-            <p className="whitespace-pre-wrap break-words">{data.content}</p>
+            <p className="whitespace-pre-wrap wrap-break-words">{data.content}</p>
           )}
 
           <p>Created by {data.author.username}</p>

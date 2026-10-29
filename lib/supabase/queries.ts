@@ -4,7 +4,7 @@ import {type QueryData} from '@supabase/supabase-js'
 export const getHomePost = async(supabase:ReturnType<typeof createClient>) => {
   return await supabase
     .from("posts")
-    .select('title, slug, id, content, image, author("id", "username")')
+    .select('title, slug, id, content, image, category, author("id", "username")')
     .order('created_at', {ascending: false})
   
 }
@@ -12,7 +12,7 @@ export const getHomePost = async(supabase:ReturnType<typeof createClient>) => {
 export const getSinglePost = async (slug: string) => {
   const supabase = createClient();
   return await supabase.from('posts')
-    .select('id, title, content, image, author("id", "username")')
+    .select('id, title, content, image, category, author("id", "username")')
     .eq('slug', slug)
     .single()
 }
