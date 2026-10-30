@@ -17,7 +17,7 @@ const EditPostPage = async({params}: {params: {slug: string}}) => {
       {data &&
         <div className="border-charcoal border-4 rounded-2xl m-auto w-[80%] mt-8 p-6">
           <h1 className="heading">Edit: {data.title}</h1>
-          <EditPageForm initialValues={{title: data.title, content: data.content, image: data.image}} postId={data.id} />
+          <EditPageForm initialValues={{title: data.title, content: data.content, image: data.image, category: data.category}} postId={data.id} />
         </div>
       }
     </>

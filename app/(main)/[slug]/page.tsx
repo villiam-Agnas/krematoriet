@@ -25,7 +25,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
         w-full max-w-3xl mt-2 p-4 sm:p-6 md:p-8
         flex flex-col gap-5"
         >
-          {data.category && <p className="text-sm uppercase">{data.category}</p>}
+          {data.category && <p className="text-m uppercase">{data.category}</p>}
 
           <h1 className="heading-secondary wrap-break-words">{data.title}</h1>
 

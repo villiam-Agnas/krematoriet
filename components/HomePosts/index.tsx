@@ -24,7 +24,7 @@ const HomePosts = ({ posts }: { posts: HomePostType }) => {
           </div>
 
           <div className="flex flex-col flex-1 min-w-0">
-            {post.category && <p className="text-sm uppercase">{post.category}</p>}
+            {post.category && <p className="text-m uppercase ">{post.category}</p>}
             <h3 className="font-bold text-2xl text-mutedTeal">{post.title}</h3>
 
             <p className="mt-1">{post.content}</p>

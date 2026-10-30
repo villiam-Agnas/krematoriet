@@ -8,7 +8,7 @@ import { useMutation } from "@tanstack/react-query"
 import { useForm } from "react-hook-form"
 import z from "zod"
 
-const EditPageForm = ({initialValues, postId } : {initialValues: Pick<Tables<"posts">, "title" | "content" | "image">, postId: string}) => {
+const EditPageForm = ({initialValues, postId } : {initialValues: Pick<Tables<"posts">, "title" | "content" | "image" | "category">, postId: string}) => {
 
   const postImageSchema = postSchema.omit({image: true }).extend({ image: z.unknown().transform(value => { return value as FileList }).optional() })
 
@@ -17,7 +17,8 @@ const EditPageForm = ({initialValues, postId } : {initialValues: Pick<Tables<"po
     defaultValues: {
       title: initialValues.title,
       content: initialValues.content || undefined,
-      image: initialValues.image || undefined
+      image: initialValues.image || undefined,
+      category: initialValues.category || undefined
     }
   })
 
@@ -38,7 +39,9 @@ const EditPageForm = ({initialValues, postId } : {initialValues: Pick<Tables<"po
         postData:{ 
             title: values.title,
             content: values.content,
-            image: imageForm
+            image: imageForm,
+            category: values.category,
+            delete_at: values.delete_at
           }, 
           postId
         })
@@ -48,6 +51,13 @@ const EditPageForm = ({initialValues, postId } : {initialValues: Pick<Tables<"po
         <input className="input" type="text" {...register("title")} />
         {errors.title && <ErrorMessage error={errors.title.message!} />}
 
+        <label htmlFor="category">Category</label>
+        <select id="category" className="input" {...register("category")}>
+          <option value="">No category</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Free Jazz">Free Jazz</option>
+        </select>
+
         <label htmlFor="content">Add content</label>
         <textarea className="input" {...register("content")}></textarea>
 
@@ -56,6 +66,13 @@ const EditPageForm = ({initialValues, postId } : {initialValues: Pick<Tables<"po
         <label htmlFor="image">Change image</label>
         <input className="input" type="file" {...register("image")} />
          {errors.image && <ErrorMessage error={errors.image.message!} />}
+
+        <label htmlFor="delete_at">Delete post at</label>
+        <input
+          className="input"
+          type="datetime-local"
+          {...register("delete_at")}
+        />
 
         <button className="button">Edit Post</button>
         {error && <ErrorMessage error={error.message} /> }
